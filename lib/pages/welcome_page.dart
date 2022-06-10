@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/misc/colors.dart';
-import 'package:flutter_bloc/widgets/app_large_text.dart';
-import 'package:flutter_bloc/widgets/app_text.dart';
-import 'package:flutter_bloc/widgets/responsive_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_practice/cubit/app_cubit.dart';
+import '../misc/colors.dart';
+import '../widgets/app_large_text.dart';
+import '../widgets/app_text.dart';
+import '../widgets/responsive_button.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key? key}) : super(key: key);
@@ -61,8 +63,23 @@ class _WelcomePageState extends State<WelcomePage> {
                         SizedBox(
                           height: 40,
                         ),
-                        ResponsiveButton(
-                          width: 120,
+                        GestureDetector(
+                          onTap: () {
+                            //If we have any method we can access from any view using BlocProvider
+                            BlocProvider.of<AppCubits>(context).getData();
+                          },
+                          child: Container(
+                            width: 200,
+
+                            //Flexible should always used inside a Row or Column
+                            child: Row(
+                              children: [
+                                ResponsiveButton(
+                                  width: 120,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ],
                     ),

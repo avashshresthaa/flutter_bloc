@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/misc/colors.dart';
-import 'package:flutter_bloc/widgets/app_text.dart';
+
+import 'app_text.dart';
 
 class AppButtons extends StatelessWidget {
   final Color color;
